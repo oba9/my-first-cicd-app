@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私の計算機アプリ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    .calculator {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h1>🧮 簡単な計算機</h1>
+    <p>CI/CDで自動デプロイされました！</p>
+    
+    <input type="number" id="num1" placeholder="数値1を入力">
+    <input type="number" id="num2" placeholder="数値2を入力">
+    
+    <button onclick="calculate('add')">足し算</button>
+    <button onclick="calculate('subtract')">引き算</button>
+    
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function calculate(operation) {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      let result;
+      
+      if (operation === 'add') {
+        result = num1 + num2;
+      } else if (operation === 'subtract') {
+        result = num1 - num2;
+      }
+      
+      document.getElementById('result').textContent = `結果: ${result}`;
+    }
+  </script>
+</body>
+</html>
