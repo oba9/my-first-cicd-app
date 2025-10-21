@@ -26,7 +26,11 @@ jobs:
     # 3. 依存パッケージをインストール
     - name: 依存関係をインストール
       run: npm install
-    
+
+    # ⭐ テストを追加！
+    - name: テストを実行
+      run: npm test
+      
     # 4. アプリを実行
     - name: アプリを実行
       run: node app.js
