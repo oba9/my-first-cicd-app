@@ -1,0 +1,32 @@
+name: CI Pipeline
+
+# いつ実行するか
+on:
+  push:
+    branches: [ main ]  # mainブランチにpushされたとき
+  pull_request:
+    branches: [ main ]  # Pull Requestが作られたとき
+
+# 実行する処理
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest  # Ubuntu環境で実行
+    
+    steps:
+    # 1. コードをチェックアウト（取得）
+    - name: コードを取得
+      uses: actions/checkout@v3
+    
+    # 2. Node.jsをセットアップ
+    - name: Node.jsをセットアップ
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    # 3. 依存パッケージをインストール
+    - name: 依存関係をインストール
+      run: npm install
+    
+    # 4. アプリを実行
+    - name: アプリを実行
+      run: node app.js
