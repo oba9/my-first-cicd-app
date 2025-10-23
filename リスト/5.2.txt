@@ -1,0 +1,7 @@
+    # ⭐ テストを追加！
+    - name: テストを実行
+      run: npm test
+
+#    この上に記述する
+#    - name: アプリを実行
+#      run: node app.js
